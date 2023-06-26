@@ -15,7 +15,7 @@
 	  <th scope="col">Superficie</th>
 	  <th scope="col">Etage</th>
 	  <th scope="col">Disponibilité</th>
-	  <th scope="col">Prix</th>
+	  <th scope="col">Prix (€)</th>
 	  <th scope="col">Actions</th>
 	  </tr></thead>
 	  <tbody>
@@ -27,9 +27,9 @@
       <td th:text="${ chambre.etage }"></td>
       <td th:text="${ chambre.disponibilite }"></td>
       <td th:text="${ chambre.prix }"></td>
-      <!--  <td><a th:href="'/soliste/deleteSoliste/' + ${sol.num}"><button type="button" class="btn btn-danger">Supprimer</button></a>
-      <a th:href="'/soliste/modifierSoliste/' + ${sol.num}"> <button type="button" class="btn btn-outline-info">Modifier</button></a></td>
-  -->  </tr>
+      <td><a th:href="'/chambre/deleteChambre/' + ${chambre.id}"><button type="button" class="btn btn-danger">Supprimer</button></a>
+      <a th:href="'/chambre/modifierChambre/' + ${chambre.id}"> <button type="button" class="btn btn-outline-info">Modifier</button></a></td>
+  </tr>
     </tbody>
     </table>
 	  
