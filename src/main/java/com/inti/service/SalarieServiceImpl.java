@@ -13,9 +13,9 @@ public class SalarieServiceImpl implements ISalarieService {
 	ISalarieRepository isr;
 
 	@Override
-	public Salarie findByLoginAndMdp(String login, String mdp) {
+	public Salarie findByLogin(String login) {
 		// TODO Auto-generated method stub
-		return isr.findByLoginAndMdp(login, mdp);
+		return isr.findByLogin(login);
 	}
 
 	@Override

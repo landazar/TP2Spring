@@ -22,7 +22,7 @@ public class CustomUserDetailsService implements UserDetailsService {
 	@Override
 	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
 		
-		Salarie s = iss.findByLoginAndMdp(username, username);
+		Salarie s = iss.findByLogin(username);
 		
 		if(s == null) {
 			throw new UsernameNotFoundException("Salarie " + username + " n'est pas dans la bdd");

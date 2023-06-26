@@ -14,7 +14,7 @@ import com.inti.model.Role;
 public interface IRoleRepository extends JpaRepository<Role, Integer> {
 	
 	@Query(value = "select r.* from role r, salarie s, salarie_role sr"
-			+ "where s.id = sr.idSalarie and r.id = sr.idRole and s.id = :id", nativeQuery = true)
+			+ " where s.id = sr.id_salarie and r.id = sr.id_role and s.id = :id", nativeQuery = true)
 	List<Role> findAllByIdSalarie(@Param("id") int idSalarie);
 
 }
