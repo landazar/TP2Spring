@@ -28,7 +28,7 @@ public class ChambreController {
 	@PostMapping("saveChambre")
 	public String saveChambre(@ModelAttribute("chambre") Chambre ch) {
 		ichr.save(ch);
-		return "redirect:/listeChambre";
+		return "redirect:/chambre/listeChambre";
 	}
 	
 	@GetMapping("listeChambre")
