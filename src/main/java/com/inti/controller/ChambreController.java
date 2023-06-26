@@ -1,9 +1,7 @@
 package com.inti.controller;
 
-import java.util.List;
-
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -29,11 +27,13 @@ public class ChambreController {
 	@PostMapping("saveChambre")
 	public String saveChambre(@ModelAttribute("chambre") Chambre ch) {
 		ichr.save(ch);
-		return "redirect:/listeChambres";
+		return "redirect:/listeChambre";
 	}
-	@GetMapping("listeChambres")
-	public String listeChambres() {
-		return "listeChambres";
+	
+	@GetMapping("listeChambre")
+	public String listeChambre(Model m) {
+		m.addAttribute("listeC", ichr.findAll().toArray());
+		return "listeChambre";
 	}
 	
 	
