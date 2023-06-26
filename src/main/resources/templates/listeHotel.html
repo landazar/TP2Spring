@@ -18,7 +18,7 @@
       <th scope="col">Id</th>
       <th scope="col">Adresse</th>
       <th scope="col">Téléphone</th>
-      <th scope="col">Actions</th>
+      <th scope="col" th:if="${isResponsable}">Actions</th>
     </tr>
   </thead>
   <tbody>
@@ -27,7 +27,7 @@
       <th scope="row" th:text="${hotel.id}"></th>
       <td th:text="${hotel.adresse}"></td>
       <td th:text="${hotel.tel}"></td>
-      <td>
+      <td th:if="${isResponsable}">
       	<a th:href="'/hotel/deleteHotel/' + ${ hotel.id }"><button type="button" class="btn btn-danger">Supprimer</button></a>
       	<a th:href="'/hotel/modifierHotel/' + ${ hotel.id }"><button type="button" class="btn btn-primary">modifier</button></a>
       </td>
