@@ -33,5 +33,4 @@ public class Chambre {
 	@ManyToOne
 	@JoinColumn(name="id_client")
 	private Client client;
-
 }
