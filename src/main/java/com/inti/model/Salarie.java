@@ -59,13 +59,13 @@ public class Salarie {
 	@JoinTable(name = "salarie_role",
 				joinColumns = @JoinColumn(name = "idSalarie"),
 				inverseJoinColumns = @JoinColumn(name = "idRole"))
-	List<Role> listeR;
+	private List<Role> listeR;
 
 	
 	@Exclude
 	@ManyToOne
 	@JoinColumn(name="idHotel")
-	Hotel hotel;
+	private Hotel hotel;
 	
 	
 	
