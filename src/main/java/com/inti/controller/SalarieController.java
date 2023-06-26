@@ -78,10 +78,10 @@ public class SalarieController {
 	
 	
 	@PostMapping("modifierSalarie/{id}")
-	public String modifierProduit(@PathVariable("id") int id)
+	public String modifierSalarie(@ModelAttribute("salarie") Salarie s)
 	{
-		Salarie s = isr.getById(id);
-		
+		// Salarie s = isr.getById(id);
+		System.out.println("5555555555555");
 		isr.save(s);
 		
 		return "redirect:/salarie/salaries";
