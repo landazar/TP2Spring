@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Liste des clients</title>
+</head>
+<body>
+	<table class="table">
+		<thead>
+			<tr>
+				<th scope="col">Id</th>
+				<th scope="col">Nom</th>
+				<th scope="col">Prénom</th>
+				<th scope="col">Adresse</th>
+				<th scope="col">Email</th>
+				<th scope="col">Téléphone</th>
+			</tr>
+		</thead>
+		<tbody>
+
+			<tr th:each="client : ${ listeClient }">
+				<th scope="row" th:text="${client.id}"></th>
+				<td th:text="${client.nom}"></td>
+				<td th:text="${client.prenom}"></td>
+				<td th:text="${client.adresse}"></td>
+				<td th:text="${client.email}"></td>
+				<td th:text="${client.telephone}"></td>
+				
+				<td><a th:href="'supprimerClient/' + ${client.id}"><button type="button"
+							class="btn btn-danger">Supprimer</button></a></td>
+				<td><a th:href="'modifierClient/' + ${client.id}"><button type="button"
+							class="btn btn-warning">Modifier</button></a></td>
+			</tr>
+		</tbody>
+	</table>
+</body>
+</html>
