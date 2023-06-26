@@ -37,6 +37,7 @@ public class SalarieController {
 	
 	@PostMapping("creerSalarie")   
 	public String creerSalarie(@ModelAttribute("salarie") Salarie s) {
+		System.out.println("555555555555555");
 		
 		BCryptPasswordEncoder b = new BCryptPasswordEncoder();
 		s.setMdp(b.encode(s.getMdp()));
