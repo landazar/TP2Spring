@@ -16,4 +16,29 @@ public interface IRoleRepository extends JpaRepository<Role, Integer> {
 	"where s.id=sr.id_salarie and r.id=sr.id_role and s.id = :id", nativeQuery = true)
 	List<Role> findAllByIdSalarie(@Param("id") int idSalarie);
 
+
 }
+
+
+
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+>>>>>>> branch 'master' of https://github.com/landazar/TP2Spring.git
