@@ -8,10 +8,14 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+
 
 import com.inti.model.Role;
 import com.inti.model.Salarie;
+
+import com.inti.repository.IRoleRepository;
 import com.inti.repository.ISalarieRepository;
 
 @Controller
@@ -20,8 +24,8 @@ public class SalarieController {
 	@Autowired
 	ISalarieRepository isr;
 	
-//	@Autowired
-//	IRoleRepository irr;
+	@Autowired
+	IRoleRepository irr;
 	
 	  
 	@GetMapping("creerSalarie")
@@ -29,48 +33,59 @@ public class SalarieController {
 		return "creerSalarie";
 	}
 
-	// 
+	// j'ai mis le role 1 par defaut pour l'instant.
+	
 	@PostMapping("creerSalarie")   
 	public String creerSalarie(@ModelAttribute("salarie") Salarie s) {
 		
 		BCryptPasswordEncoder b = new BCryptPasswordEncoder();
 		s.setMdp(b.encode(s.getMdp()));
 		
-
-//		List<Role> listeR = List.of(isr.getById(4));
-//		u.setListRoles(listeR);
+		List<Role> listeR = List.of(irr.getById(1));
+		s.setListeR(listeR);
 
 		isr.save(s);
 		return "redirect:creerSalarie";
 	}
 	
 	
-
-	
-	
-	
-	
-	
-	
-	
-
-	
-	@GetMapping("connexionSalarie")
-	public String connexionSalarie() {
-		return "connexionSalarie";
+	@GetMapping("salaries")
+	public String getProduits(Model m) {
+		m.addAttribute("listeS", isr.findAll().toArray());
+		
+		return "salaries";
 	}
 	
-	@PostMapping("connexionSalarie")
-	public String recupererSalarie(@ModelAttribute ("salarie") Salarie s, Model m) {
-		Salarie s1 = isr.findByLoginAndMdp(s.getLogin(), s.getMdp());
-		m.addAttribute("salarie", s1);
-		if(s1 == null)
-		{
-			m.addAttribute("erreur", true);
-			return "connexionSalarie";
-		}
-		return "redirect:/";
+	@GetMapping("deleteSalarie/{id}")
+	public String deleteSalarie(@PathVariable("id") int id)
+	{
+		isr.deleteById(id);
+		
+		return "redirect:/salaries";
 	}
+	
+	
+	@GetMapping("modifierSalarie/{id}")
+	public String modifierSalarie(Model m, @PathVariable("id") int id)
+	{
+		m.addAttribute("p1", isr.getById(id));
+		
+		return "modifierSalarie";
+	}
+	
+	
+	
+	@PostMapping("modifierSalarie/updateSalarie")
+	public String modifierProduit(@ModelAttribute("produit") Salarie s)
+	{
+		isr.save(s);
+		
+		return "redirect:/salaries";
+	}
+	
+
+	
+
 	
 	
 }
