@@ -34,6 +34,10 @@ public class Role {
 	@NonNull
 	private String nomRole;
 	
-	
+	@ManyToMany
+	@JoinTable(name = "salarie_role", joinColumns = @JoinColumn(name = "idRole"),
+				inverseJoinColumns = @JoinColumn(name = "idSalarie"))
+	@Exclude
+	private List<Salarie> listeS;
 
 }
