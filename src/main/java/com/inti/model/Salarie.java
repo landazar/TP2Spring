@@ -1,5 +1,6 @@
 package com.inti.model;
 
+import java.time.LocalDate;
 import java.util.List;
 
 import javax.persistence.Column;
@@ -40,25 +41,18 @@ public class Salarie {
 	
 	@Column(length = 50)
 	@NonNull
-	private String nom;
+	private String type;
 	
 	@Column(length = 50)
 	@NonNull
-	private String prenom;
+	private LocalDate dateNaissance;
 	
 	@Column(length = 200)
 	@NonNull
-	private String adresse;
+	private LocalDate dateEmbauche;
 
 	
-	@Column(unique = true, length = 50, nullable = false)
-	@NonNull
-	private String email;
-	
-	@Column(length = 20)
-	@NonNull
-	private String tel;
-	
+
 	@Exclude
 	@ManyToMany
 	@JoinTable(name = "salarie_role",
