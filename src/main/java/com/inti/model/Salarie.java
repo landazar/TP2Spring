@@ -11,6 +11,7 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 import lombok.AllArgsConstructor;
@@ -39,15 +40,15 @@ public class Salarie {
 	private String mdp;
 	
 	
-	@Column(length = 50)
+	@Column
 	@NonNull
 	private String type;
 	
-	@Column(length = 50)
+	@Column
 	@NonNull
 	private LocalDate dateNaissance;
 	
-	@Column(length = 200)
+	@Column
 	@NonNull
 	private LocalDate dateEmbauche;
 
@@ -58,8 +59,14 @@ public class Salarie {
 	@JoinTable(name = "salarie_role",
 				joinColumns = @JoinColumn(name = "idSalarie"),
 				inverseJoinColumns = @JoinColumn(name = "idRole"))
-	List<Role> listeR;
+	private List<Role> listeR;
 
+	
+	@Exclude
+	@ManyToOne
+	@JoinColumn(name="idHotel")
+	private Hotel hotel;
+	
 	
 	
 }

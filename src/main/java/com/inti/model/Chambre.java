@@ -49,5 +49,4 @@ public class Chambre {
 	@OneToOne
 	@JoinColumn(name="id_client")
 	private Client client;
-
 }
