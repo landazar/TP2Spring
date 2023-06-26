@@ -11,8 +11,8 @@ import java.util.List;
 public interface ISalarieRepository extends JpaRepository<Salarie, Integer> {
 	
 	
-	Salarie findByLoginAndMdp(String login, String mdp);
+//	Salarie findByLoginAndMdp(String login, String mdp);
 	
-//	Salarie findByLogin(String login);
+	Salarie findByLogin(String login);
 
 }

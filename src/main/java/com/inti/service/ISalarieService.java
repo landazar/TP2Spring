@@ -4,7 +4,7 @@ import com.inti.model.Salarie;
 
 public interface ISalarieService {
 	
-	Salarie findByLoginAndMdp(String login, String mdp);
+	Salarie findByLogin(String login);
 	void saveSalarie(Salarie salarie);
 
 }
