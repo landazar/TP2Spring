@@ -10,29 +10,14 @@ import org.springframework.stereotype.Repository;
 import com.inti.model.Role;
 
 @Repository
-public interface IRoleRepository extends JpaRepository<Role, Integer>{
-
+public interface IRoleRepository extends JpaRepository<Role, Integer> {
 	
-	@Query(value="select r.* from role r, utilisateur u, utilisateur_role ur where u.id = ur.id_utilisateur and r.id = ur.id_role and u.id=:id", nativeQuery = true)
-	List<Role> findAllByIdUtilisateur(@Param("id") int id);
+	@Query(value = "select r.* from role r, salarie s, salarie_role sr " + 
+	"where s.id=sr.id_salarie and r.id=sr.id_role and s.id = :id", nativeQuery = true)
+	List<Role> findAllByIdSalarie(@Param("id") int idSalarie);
 
-	
+
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
