@@ -21,24 +21,3 @@ public interface IRoleRepository extends JpaRepository<Role, Integer> {
 
 
 
-	
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
->>>>>>> branch 'master' of https://github.com/landazar/TP2Spring.git
