@@ -11,6 +11,7 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 import lombok.AllArgsConstructor;
@@ -60,6 +61,12 @@ public class Salarie {
 				inverseJoinColumns = @JoinColumn(name = "idRole"))
 	List<Role> listeR;
 
+	
+	@Exclude
+	@ManyToOne
+	@JoinColumn(name="idHotel")
+	Hotel hotel;
+	
 	
 	
 }
