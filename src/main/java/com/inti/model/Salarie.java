@@ -39,15 +39,15 @@ public class Salarie {
 	private String mdp;
 	
 	
-	@Column(length = 50)
+	@Column
 	@NonNull
 	private String type;
 	
-	@Column(length = 50)
+	@Column
 	@NonNull
 	private LocalDate dateNaissance;
 	
-	@Column(length = 200)
+	@Column
 	@NonNull
 	private LocalDate dateEmbauche;
 
