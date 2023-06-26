@@ -36,10 +36,8 @@ public class MainController {
 		return "creerSalarieConnexion";
 	}
 	@PostMapping("creerSalarieConnexion")
-	public String creerSalarie(@RequestParam("type") String type, @RequestParam("dateNaissance") String dateNaissance,
-			@RequestParam("dateEmbauche") String dateEmbauche, @RequestParam("login") String login, @RequestParam("mdp") String mdp) {
+	public String creerSalarie(@ModelAttribute("salarie") Salarie salarie) {
 		
-		Salarie salarie = new Salarie(login, mdp, type, LocalDate.parse(dateNaissance), LocalDate.parse(dateEmbauche));
 		BCryptPasswordEncoder b = new BCryptPasswordEncoder();
 		String mdpCrypte = b.encode(salarie.getMdp());
 		salarie.setMdp(mdpCrypte);

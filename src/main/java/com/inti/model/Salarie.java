@@ -49,12 +49,12 @@ public class Salarie {
 	
 	@Column
 	@NonNull
-	@DateTimeFormat(pattern = "yyyy-MM-DD")
+	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	private LocalDate dateNaissance;
 	
 	@Column
 	@NonNull
-	@DateTimeFormat(pattern = "yyyy-MM-DD")
+	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	private LocalDate dateEmbauche;
 
 	
