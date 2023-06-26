@@ -29,11 +29,11 @@ public class MainController {
 	}
 
 	
-	@GetMapping("creerSalarie")
+	@GetMapping("creerSalarieConnexion")
 	public String creerSalarie() {
-		return "creerSalarie";
+		return "creerSalarieConnexion";
 	}
-	@PostMapping("creerSalarie")
+	@PostMapping("creerSalarieConnexion")
 	public String creerSalarie(@ModelAttribute("salarie") Salarie salarie) {
 		
 		BCryptPasswordEncoder b = new BCryptPasswordEncoder();
