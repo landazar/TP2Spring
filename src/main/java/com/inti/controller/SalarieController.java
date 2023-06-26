@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
-
+import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.inti.model.Role;
 import com.inti.model.Salarie;
@@ -19,6 +19,7 @@ import com.inti.repository.IRoleRepository;
 import com.inti.repository.ISalarieRepository;
 
 @Controller
+@RequestMapping("/salarie")
 public class SalarieController {
 	
 	@Autowired
@@ -46,7 +47,7 @@ public class SalarieController {
 		s.setListeR(listeR);
 
 		isr.save(s);
-		return "redirect:creerSalarie";
+		return "redirect:/salarie/creerSalarie";
 	}
 	
 	
@@ -62,7 +63,7 @@ public class SalarieController {
 	{
 		isr.deleteById(id);
 		
-		return "redirect:/salaries";
+		return "redirect:/salarie/salaries";
 	}
 	
 	
@@ -76,12 +77,14 @@ public class SalarieController {
 	
 	
 	
-	@PostMapping("modifierSalarie/updateSalarie")
-	public String modifierProduit(@ModelAttribute("produit") Salarie s)
+	@PostMapping("modifierSalarie/{id}")
+	public String modifierProduit(@PathVariable("id") int id)
 	{
+		Salarie s = isr.getById(id);
+		
 		isr.save(s);
 		
-		return "redirect:/salaries";
+		return "redirect:/salarie/salaries";
 	}
 	
 
