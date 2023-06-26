@@ -1,5 +1,6 @@
 package com.inti.model;
 
+
 import java.time.LocalDate;
 import java.util.List;
 
@@ -13,6 +14,8 @@ import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+
+import org.springframework.format.annotation.DateTimeFormat;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -46,10 +49,12 @@ public class Salarie {
 	
 	@Column
 	@NonNull
+	@DateTimeFormat(pattern = "yyyy-MM-DD")
 	private LocalDate dateNaissance;
 	
 	@Column
 	@NonNull
+	@DateTimeFormat(pattern = "yyyy-MM-DD")
 	private LocalDate dateEmbauche;
 
 	
