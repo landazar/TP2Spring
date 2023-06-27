@@ -20,3 +20,9 @@ padding-right: .75em;
 .card-registration .select-arrow {
 top: 13px;
 }
+
+form, table {
+	padding-top: 50px;
+	margin: auto;
+	width: 75%;
+}

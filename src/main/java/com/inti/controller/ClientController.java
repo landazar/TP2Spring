@@ -1,7 +1,5 @@
 package com.inti.controller;
 
-import java.util.List;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -41,8 +39,8 @@ public class ClientController {
 		
 //Read
 		@GetMapping("/listeClient")
-		public String afficherListeClient(Model model) {
-			model.addAttribute("client", cr.findAll());
+		public String listeClient(Model model) {
+			model.addAttribute("listeClient", cr.findAll());
 			return "listeClient";
 		}
 		
